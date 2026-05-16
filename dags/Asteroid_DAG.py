@@ -13,6 +13,7 @@ PYTHON = "python3"
 EXTRACT_API = "/opt/airflow/scripts/Extract_API.py"
 TRANSFORM_FLATTEN = "/opt/airflow/scripts/transform_flatten.py"
 TRANSFORM_CSV = "/opt/airflow/scripts/transform_toCSV.py"
+VALIDATE = "/opt/airflow/scripts/validate.py"
 LOAD_POSTGRES = "/opt/airflow/scripts/load_postgres.py"
 CAL_DANGER_LEVEL = "/opt/airflow/scripts/danger_level.py"
 
@@ -24,7 +25,7 @@ default_args = {
 }
 with DAG(
     dag_id= DAG_ID,
-    description= "Extract API -> JSON -> CSV -> Postgres -> DW -> Analytics Task using ETL + Airflow",
+    description= "Extract API -> JSON -> CSV -> Validate CSV-> Postgres -> DW -> Analytics Task using ETL + Airflow",
     default_args= default_args,
     start_date= days_ago(1),
     schedule_interval = "@daily",
@@ -44,8 +45,13 @@ with DAG(
     )
 
     transform_csv = BashOperator(
-        task_id = "clean_and_validate_to_CSV",
+        task_id = "to_CSV",
         bash_command = f"{PYTHON} {TRANSFORM_CSV} '{{{{ ds }}}}'",
+    )
+
+    validate_task = BashOperator(
+        task_id = "validate_csv_data",
+        bash_command = f"{PYTHON} {VALIDATE} '{{{{ ds }}}}'",
     )
 
     load_to_postgre = BashOperator(
@@ -60,4 +66,4 @@ with DAG(
 
     end = EmptyOperator(task_id="end")
 
-    start >> extract >> transform_flatten >> transform_csv >> load_to_postgre >> [danger_level] >> end
+    start >> extract >> transform_flatten >> transform_csv >> validate_task >> load_to_postgre >> [danger_level] >> end
