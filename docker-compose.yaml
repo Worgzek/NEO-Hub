@@ -12,7 +12,6 @@ x-airflow-common:
     - ./data:/opt/airflow/data
     - ./logs:/opt/airflow/logs
 
-
 services:
   postgres:
     image: postgres:13

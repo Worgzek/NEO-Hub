@@ -34,7 +34,7 @@ def validate(run_date):
         logger.info('khong phat hien null')
         
     df.to_csv(file_path, index=False)
-    logger.info("da luu lai file csv")
+    logger.info(f"da luu lai file csv, deleted {len(null)} null rows, {len(duplicated)} duplicated rows")
 
 if __name__ == "__main__":
     validate(run_date)
