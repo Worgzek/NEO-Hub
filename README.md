@@ -37,6 +37,7 @@ nasa_asteroid_ETL_Project
 │   ├── Extract_API.py
 │   ├── flatten_data.py
 │   ├── transform_data.py
+│   ├── validate.py
 │   ├── load_postgres.py
 │   └── danger_score.py
 │   └── db_log.py
@@ -47,6 +48,7 @@ nasa_asteroid_ETL_Project
 │   └── processed/
 │   └── sql/
 │        └── init.sql
+│        └── ignored.sql
 │        └── log.sql
 │
 ├── logs/
