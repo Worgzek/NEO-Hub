@@ -76,6 +76,8 @@ Transform → CSV
    ↓
 Clean and transform data → CSV
    ↓
+Validate before load → Database
+   ↓
 Load into PostgreSQL
    ↓
 Calculate risk_score
