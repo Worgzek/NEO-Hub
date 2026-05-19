@@ -20,6 +20,8 @@ services:
     volumes:
       - ./data/sql/init.sql:/docker-entrypoint-initdb.d/01_init.sql
       - ./data/sql/log.sql:/docker-entrypoint-initdb.d/02_log.sql
+      - ./data/sql/ignored.sql:/docker-entrypoint-initdb.d/03_ignored.sql
+
 
     ports:
       - "5433:5432"
