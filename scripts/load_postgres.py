@@ -49,7 +49,8 @@ def load_postgres(run_date):
                 miss_distance_km FLOAT,
                 date date,
                 last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                PRIMARY KEY (asteroid_id, date))
+                PRIMARY KEY (asteroid_id, date)
+                );
             """)
         values = df[[
                 'asteroid_id',
@@ -73,7 +74,7 @@ def load_postgres(run_date):
             absolute_magnitude = EXCLUDED.absolute_magnitude,   
             diameter_min_m = EXCLUDED.diameter_min_m,
             diameter_max_m = EXCLUDED.diameter_max_m,
-            last_updated = CURRENT_TIMESTAMP
+            last_updated = CURRENT_TIMESTAMP;
             """
         execute_values(cur, insert_query, values)
         conn.commit()

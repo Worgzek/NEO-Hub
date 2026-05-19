@@ -9,5 +9,6 @@ Create table if not exists ignored(
     ,velocity_km_s FLOAT
     ,miss_distance_km FLOAT
     ,date date
-    ,reject_reason,
-    ,last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+    ,reject_reason VARCHAR(50)
+    ,last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
