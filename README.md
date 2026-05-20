@@ -167,6 +167,7 @@ Data is stored in PostgreSQL database **nasa_neo** with the following tables:
 asteroids
 danger_score
 etl_log
+ignored
 ```
 
 ### Table Columns
@@ -202,6 +203,17 @@ status
 records_processed
 message
 logged_at
+```
+**ignored:**
+```
+asteroid_id
+name
+diameter_max_m
+velocity_km_s
+miss_distance_km
+risk_score
+danger_level
+reject_reason
 ```
 ---
 
