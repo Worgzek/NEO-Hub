@@ -109,16 +109,16 @@ risk_score =
 | ≥ 4        | MEDIUM      |
 | < 4        | LOW         |
 
----
+# Technologies/Libraries Used
 
-# Technologies Used
-
-- Python  
+- Python
+- Pandas
 - PostgreSQL  
 - Apache Airflow  
 - Docker  
-- Loguru (logging)  
-- Pandas  
+- Loguru
+- Psycopg2 
+- Grafana  
 
 ---
 
@@ -136,6 +136,12 @@ Access the Airflow UI:
 http://localhost:8181
 ```
 
+Access the Grafana UI:
+
+```
+http://localhost:3001
+```
+
 Default login credentials:
 
 ```
@@ -143,14 +149,20 @@ username: admin
 password: admin
 ```
 
-Trigger the DAG to run the entire pipeline.
+Trigger the DAG to run the entire pipeline:
+<img width="1832" height="300" alt="Screenshot 2026-05-20 232049" src="https://github.com/user-attachments/assets/6432a0fd-c0ea-40c2-b398-facb1e162333" />
+
+Visualize data using SQL at Grafana webserver:
+<img width="1855" height="963" alt="Screenshot 2026-05-20 232450" src="https://github.com/user-attachments/assets/815fed10-b320-4a9c-933f-07b90f12e9fe" />
+
+
 
 ### Database Connection
 
 ```
 Register Server:
 
-- host name: localhost
+- host: localhost
 - port: 5433
 - maintenance database: airflow
 - username: airflow
@@ -163,12 +175,8 @@ Register Server:
 
 Data is stored in PostgreSQL database **nasa_neo** with the following tables:
 
-```
-asteroids
-danger_score
-etl_log
-ignored
-```
+<img width="167" height="122" alt="Screenshot 2026-05-20 232904" src="https://github.com/user-attachments/assets/5abc9c5b-98df-43c5-8f5b-b2d12b073cb5" />
+
 
 ### Table Columns
 **danger_level:**
