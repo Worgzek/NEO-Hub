@@ -15,7 +15,8 @@ The pipeline performs the following steps:
 - Validate and clean data  
 - Load data into PostgreSQL  
 - Calculate asteroid risk scores  
-- Automate the pipeline using Apache Airflow and run the environment with Docker  
+- Automate the pipeline using Apache Airflow and run the environment with Docker
+- Visualize the data using SQL query with Grafana
 
 Data source:  
 NASA Near Earth Object Web Service API  
