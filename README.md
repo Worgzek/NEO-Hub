@@ -193,16 +193,6 @@ risk_score
 danger_level
 date
 ```
-**danger_level:**
-```
-asteroid_id
-name
-diameter_max_m
-velocity_km_s
-miss_distance_km
-risk_score
-danger_level
-date
 ```
 **etl_log:**
 ```
@@ -234,3 +224,5 @@ Pipeline logs are stored in:
 log file: logs/
 database: etl_log table at Postgres
 ```
+
+API → Python → CSV → Postgres → Airflow (daily batch)
